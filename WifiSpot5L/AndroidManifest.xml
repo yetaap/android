@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.yetaap.wifispot5l"
+    android:versionCode="2"
+    android:versionName="1.1" >
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />    
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+	
+	<uses-feature android:name="android.hardware.wifi" android:required="true"/>
+    
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/on"
+        android:label="@string/app_name" >
+
+        <receiver
+            android:name=".WifiSpotProvider"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="es.yetaap.wifispot5l.UPDATE_WIDGET" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider"/>
+        </receiver>
+        
+		<receiver android:name=".WifiSpotUpdater" >
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>        
+    </application>
+		
+</manifest>
