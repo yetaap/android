@@ -67,6 +67,7 @@ public class WifiSpotProvider extends AppWidgetProvider
     	// Intent de actualizar el estado desde el BroadcastReceiver
         else if (action.contentEquals(WifiSpotUpdater.INTENT_UPDATE_WIDGET_ACTION))
         {
+        	// Intent desde cambio en el estado del Wifi AP
         	if(_intent.hasExtra(WifiSpotUpdater.INTENT_UPDATE_WIDGET))
             {
         		Log.d(LOG_TAG,"onReceive actualizamos imagen");
@@ -85,6 +86,25 @@ public class WifiSpotProvider extends AppWidgetProvider
         		int[] ids = gm.getAppWidgetIds(new ComponentName(_context, WifiSpotProvider.class));
         		this.onUpdate(_context, gm, ids);            
             }
+        	// Intent desde el boot completed
+        	else
+        	{
+        		Log.d(LOG_TAG,"onReceive evento de boot completed");
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(_context);
+                if(prefs != null)
+                {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    if(editor != null) 
+                    {
+                        editor.putBoolean(PREFS_EXTRA_AP_STATE_TO_REFRESH, isApOn(_context));
+                        editor.commit();
+                    }
+                }
+        		
+        		AppWidgetManager gm = AppWidgetManager.getInstance(_context);
+        		int[] ids = gm.getAppWidgetIds(new ComponentName(_context, WifiSpotProvider.class));
+        		this.onUpdate(_context, gm, ids);            
+        	}
         }
         else if (action.contentEquals(AppWidgetManager.ACTION_APPWIDGET_UPDATE))
         {
