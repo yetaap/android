@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp" />
-
+
             <RatingBar
                 android:id="@+id/ratingBarShow"
                 style="?android:attr/ratingBarStyleIndicator"
@@ -69,8 +69,7 @@
 
         </LinearLayout>
     </ScrollView>
-    
-	<LinearLayout
+    	<LinearLayout
 	    android:id="@+id/linearLayoutBottomShow"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"

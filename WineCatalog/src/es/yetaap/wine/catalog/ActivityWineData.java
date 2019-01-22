@@ -116,9 +116,6 @@ public class ActivityWineData extends Activity
 				m_WineImage.setTag(pathPhoto);
 			}			
 			
-			// Cambiamos el titulo de la activity
-			setTitle(R.string.Update);
-			
 			// Cambiamos el texto del boton
 			m_ButtonAddUpdate.setText(R.string.Update);
    		}		

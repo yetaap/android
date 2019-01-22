@@ -47,7 +47,8 @@ public final class R {
         public static final int selectorbuttonclose=0x7f020019;
         public static final int selectorbuttondelete=0x7f02001a;
         public static final int selectorbuttonedit=0x7f02001b;
-        public static final int show=0x7f02001c;
+        public static final int selectorlist=0x7f02001c;
+        public static final int show=0x7f02001d;
     }
     public static final class id {
         public static final int autoCompleteKindWine=0x7f06000d;

@@ -11,7 +11,6 @@ import android.os.Parcelable;
 import android.text.Editable; 
 import android.text.TextWatcher; 
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Gravity;
@@ -60,11 +59,11 @@ public class ActivityFinder extends Activity
 		if(m_AppContext == null || m_EditSearch == null || m_Listview == null)
 			return;
 		
-		// Creamos el dialogo para informar de campos sin completar
+		// Creamos el dialogo para preguntar si desea borrar el vino
 		m_Builder = new AlertDialog.Builder(this);
 		m_Builder.setCancelable(false);
 		
-		m_EditSearch.setTypeface(((AppGlobalContext)getApplicationContext()).getFontLight());
+		m_EditSearch.setTypeface(m_AppContext.getFontLight());
 		m_EditSearch.addTextChangedListener(new TextWatcher() 
 		{ 
 			public void afterTextChanged(Editable s) 
@@ -110,6 +109,7 @@ public class ActivityFinder extends Activity
 			outState.putInt("es.yetaap.wine.catalog.finder.selected", m_iSelectedRow);
 		}
 	}
+	
 	// Callback desde las ventanas de AddNewCard y ShowCard
 	protected void onActivityResult(int _requestCode, int _resultCode, Intent _data) 
 	{  

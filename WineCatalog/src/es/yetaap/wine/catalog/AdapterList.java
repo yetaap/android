@@ -3,7 +3,6 @@ package es.yetaap.wine.catalog;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -26,6 +25,36 @@ public class AdapterList extends ArrayAdapter<WineElement>
 		TextView mSecondaryText;
 		RatingBar mRating;
 		ImageView mIconView;
+		
+		ViewHolder(View item, AppGlobalContext _context)
+		{
+			mMainText = (TextView)item.findViewById(R.id.textViewMain);
+			mMainText.setTextSize(TypedValue.COMPLEX_UNIT_DIP,12);
+			mMainText.setTypeface(_context.getFontCondensedBold());
+			mSecondaryText = (TextView)item.findViewById(R.id.textViewSecondary);
+			mSecondaryText.setTextSize(TypedValue.COMPLEX_UNIT_DIP,10);
+			mSecondaryText.setTypeface(_context.getFontLight());
+			mRating = (RatingBar)item.findViewById(R.id.ratingBarListWine);
+			mIconView = (ImageView)item.findViewById(R.id.imageViewIcon);
+			mIconView.setAdjustViewBounds(true);
+
+			switch(_context.getDensity()) 
+			{
+				case DisplayMetrics.DENSITY_LOW:  //LDPI
+					mIconView.setMaxHeight(24);
+					mIconView.setMaxWidth(24);
+				break;
+				case DisplayMetrics.DENSITY_MEDIUM: //MDPI
+					mIconView.setMaxHeight(32);
+					mIconView.setMaxWidth(32);
+				break;
+				case DisplayMetrics.DENSITY_HIGH: //HDPI
+				default:
+					mIconView.setMaxHeight(48);
+					mIconView.setMaxWidth(48);
+				break;
+			} 
+		}
 	}
 
 	AdapterList(Activity _context,ArrayList<WineElement> _arrWines) 
@@ -45,42 +74,18 @@ public class AdapterList extends ArrayAdapter<WineElement>
 		View item = _convertView;
 		ViewHolder holder;
 	 
+		// item es null cuando creas la lista por primera vez
 		if(item == null)
 		{
 			LayoutInflater inflater = this.m_Context.getLayoutInflater();
 			item = inflater.inflate(R.layout.layout_itemlist, null);
 	 
-			holder = new ViewHolder();
-			holder.mMainText = (TextView)item.findViewById(R.id.textViewMain);
-			holder.mMainText.setTextSize(TypedValue.COMPLEX_UNIT_DIP,12);
-			holder.mMainText.setTypeface(m_AppContext.getFontCondensedBold());
-			holder.mSecondaryText = (TextView)item.findViewById(R.id.textViewSecondary);
-			holder.mSecondaryText.setTextSize(TypedValue.COMPLEX_UNIT_DIP,10);
-			holder.mSecondaryText.setTypeface(m_AppContext.getFontLight());
-			holder.mRating = (RatingBar)item.findViewById(R.id.ratingBarListWine);
-			holder.mIconView = (ImageView)item.findViewById(R.id.imageViewIcon);
-			holder.mIconView.setAdjustViewBounds(true);
-	
-			switch(m_AppContext.getDensity()) 
-			{
-				case DisplayMetrics.DENSITY_LOW:  //LDPI
-					holder.mIconView.setMaxHeight(24);
-					holder.mIconView.setMaxWidth(24);
-				break;
-				case DisplayMetrics.DENSITY_MEDIUM: //MDPI
-					holder.mIconView.setMaxHeight(32);
-					holder.mIconView.setMaxWidth(32);
-				break;
-				case DisplayMetrics.DENSITY_HIGH: //HDPI
-				default:
-					holder.mIconView.setMaxHeight(48);
-					holder.mIconView.setMaxWidth(48);
-				break;
-			} 
+			holder = new ViewHolder(item,m_AppContext);
 
 			item.setTag(holder);
 		}
-		else
+		// item != null cuando haces scroll por la lista, se reusan las views que se salen de la vista al hacer scroll
+		else			
 		{
 			holder = (ViewHolder)item.getTag();
 		}
@@ -117,6 +122,7 @@ public class AdapterList extends ArrayAdapter<WineElement>
    			holder.mIconView.setImageBitmap(m_AppContext.getSDManager().DecodeJpgFile(pathPhoto));
 		}			
 
+		// Ponemos el color del fondo segun si esta seleccionado o no
 		if(m_iPosition == _position)
 		{
 			item.setBackgroundResource(R.color.selected_list_item); 

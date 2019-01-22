@@ -12,7 +12,8 @@ import android.util.Log;
 public class BBDDConnection extends SQLiteOpenHelper 
 {
     //Sentencia SQL para crear la tabla de Wines
-    private static final String m_SqlCreate = "CREATE TABLE Wines (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+    private static final String m_Table = "Wines";	
+    private static final String m_SqlCreate = "CREATE TABLE " + m_Table + " (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
     		                                         "wineName TEXT, " +
     		                                         "wineProducer TEXT, " + 
     		                                         "wineRegion TEXT, " + 
@@ -24,8 +25,7 @@ public class BBDDConnection extends SQLiteOpenHelper
     		                                         "wineAlcohol float(24), " +
     		                                         "wineRating float(24), " +
 													 "finder TEXT)";
-    private static final String m_SqlQueryReadAll = "SELECT * FROM Wines";
-    private static final String m_Table = "Wines";
+    private static final String m_SqlQueryReadAll = "SELECT * FROM " + m_Table;
     private static final String m_BBDDName = "WinesCatalog.bd";
  
 	////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,7 +150,7 @@ public class BBDDConnection extends SQLiteOpenHelper
 		return result;
     }
 	
-	// Cargar todas las QRCodeCards existentes en la BBDD
+	// Cargar todas los Vinos existentes en la BBDD
 	public synchronized int ReadAllData(ArrayList<WineElement> _arrWines)
 	{	
 		SQLiteDatabase db = null;

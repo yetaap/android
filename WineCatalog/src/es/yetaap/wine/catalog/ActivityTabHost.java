@@ -19,9 +19,10 @@ public class ActivityTabHost extends TabActivity
         setContentView(R.layout.layout_tabhost); 
  		
         TabHost tabHost = getTabHost();
-        setTextType(tabHost);
 		if(tabHost != null)
 		{
+			tabHost.setup();
+	        setTextType(tabHost);
 			// Tab for Data 
 			TabSpec dataspec = tabHost.newTabSpec(getString(R.string.Data)); 
 			// setting Title and Icon for the Tab 
