@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+    	android:id="@+id/scrollViewWine"
+     	android:layout_width="match_parent"
+     	android:layout_height="wrap_content" android:scrollbars="vertical">
+        
+       	<LinearLayout
+       	    android:id="@+id/linearLayoutAll"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent"
+    		android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayoutEditAndImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutEdit"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:hint="@string/WineName" 
+                        android:imeOptions="actionNext"/>
+
+                    <EditText
+                        android:id="@+id/editTextHarvestYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:hint="@string/HarvestYear"
+                        android:inputType="number" 
+                        android:imeOptions="actionNext"/>
+
+                    <EditText
+                        android:id="@+id/editTextAlcohol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/alcohol" 
+                        android:clickable="true" 
+                        android:inputType="numberDecimal"
+                        android:imeOptions="actionNext"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageViewWine"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/nophoto_big" 
+                    android:layout_weight="1" 
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+    		<EditText
+        		android:id="@+id/editTextProducer"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:hint="@string/Producer" 
+        		android:clickable="true"
+        		android:imeOptions="actionNext"/>
+
+    		<es.yetaap.wine.catalog.MyAutoCompleteTextView
+        		android:id="@+id/autoCompleteRegion"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:clickable="true"
+        		android:completionThreshold="1"
+        		android:hint="@string/Region" 
+        		android:imeOptions="actionNext"/>
+
+    		<es.yetaap.wine.catalog.MyAutoCompleteTextView
+        		android:id="@+id/autoCompleteWineAge"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:hint="@string/WineMaduration" 
+        		android:clickable="true" 
+        		android:completionThreshold="1"
+        		android:imeOptions="actionNext" />
+
+		    <es.yetaap.wine.catalog.MyAutoCompleteTextView
+        		android:id="@+id/autoCompleteKindWine"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:hint="@string/KindOfWine" 
+        		android:clickable="true" 
+        		android:completionThreshold="1"
+        		android:imeOptions="actionNext" />
+
+    		<EditText
+        		android:id="@+id/editTextComentary"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:hint="@string/Commentary"
+        		android:inputType="textMultiLine" 
+        		android:clickable="true"
+        		android:imeOptions="actionDone" />
+
+    		<LinearLayout
+    		    android:id="@+id/linearLayoutRating"
+    		    android:layout_width="match_parent"
+    		    android:layout_height="wrap_content" >
+
+    		    <TextView
+    		        android:id="@+id/textViewRating"
+    		        android:layout_width="wrap_content"
+    		        android:layout_height="wrap_content"
+    		        android:layout_gravity="center_vertical"
+    		        android:paddingRight="8dp"
+    		        android:text="@string/rating" android:layout_marginLeft="3dp"/>
+
+    		    <RatingBar
+    		        android:id="@+id/ratingBarWine"
+    		        style="?android:attr/ratingBarStyleIndicator"
+    		        android:layout_width="wrap_content"
+    		        android:layout_height="wrap_content"
+    		        android:clickable="true"
+    		        android:focusable="true"
+    		        android:focusableInTouchMode="true"
+    		        android:isIndicator="false"
+    		        android:paddingLeft="3dp" />
+
+    		</LinearLayout>
+
+    		<Button
+    		    android:id="@+id/buttonAdd"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:layout_weight="1"
+    		    android:onClick="onClickAddDataWine"
+    		    android:text="@string/AddWine" 
+    		    android:layout_gravity="bottom|center_horizontal" 
+    		    android:layout_marginTop="15dp"/>
+		</LinearLayout>
+   	</ScrollView>
+</LinearLayout>

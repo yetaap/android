@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="image_border_start">#40990000</color> 
+	<color name="image_border_end">#FF660000</color> 
+	<color name="image_border_center">#FFFF3333</color>
+	<color name="default_back_color">#FF000000</color>
+    <color name="holo_blue_light">#ff33b5e5</color>	    
+    <color name="selected_list_item">#6633b5e5</color>
+</resources>

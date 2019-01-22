@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundapp" android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageViewShowWine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.33"
+        android:src="@drawable/nophoto_extra_big" 
+        android:layout_gravity="center" android:layout_margin="10dp"/>
+
+    <ScrollView
+        android:id="@+id/scrollViewShow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.16" 
+        android:scrollbars="vertical" 
+        android:layout_gravity="center" 
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutShow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:background="@drawable/layoutbackground" 
+            android:layout_gravity="center" 
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textViewFirstLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="30dp" />
+
+            <TextView
+                android:id="@+id/textViewSecondLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/textViewThirdLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/textViewFourthLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp" />
+
+            <RatingBar
+                android:id="@+id/ratingBarShow"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:numStars="5"
+                android:stepSize="0.5" />
+
+        </LinearLayout>
+    </ScrollView>
+    
+	<LinearLayout
+	    android:id="@+id/linearLayoutBottomShow"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="bottom"
+	    android:orientation="vertical" >
+
+		<View 
+		 	android:layout_width="fill_parent" 
+		   	android:layout_height="1dp" 
+		   	android:background="@color/holo_blue_light"/> 
+		    	    	    
+		<LinearLayout 
+		    android:id="@+id/linearLayoutButtonsShow"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+	
+			<FrameLayout
+        		android:layout_width="match_parent"
+        		android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp">
+			    <Button
+		            android:id="@+id/b1Show"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:background="@drawable/selectorbuttonadd"
+		            android:onClick="onClickAddWine" android:layout_gravity="center"/>
+		    </FrameLayout>
+
+			<FrameLayout
+			    android:layout_weight="1"
+       			android:layout_width="match_parent"
+       			android:layout_height="match_parent" android:layout_margin="4dp">
+		        <Button
+		            android:id="@+id/b2Show"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:background="@drawable/selectorbuttonedit"
+		            android:onClick="onClickEdit" android:layout_gravity="center"/>
+	        </FrameLayout>
+
+		    <FrameLayout
+		        android:layout_weight="1"
+       			android:layout_width="match_parent"
+       			android:layout_height="match_parent" android:layout_margin="4dp">
+	            <Button
+	                android:id="@+id/b3Show"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/selectorbuttondelete"
+	                android:onClick="onClickDelete" android:layout_gravity="center"/>
+	        </FrameLayout>
+
+		    <FrameLayout
+			    android:layout_weight="1"
+        		android:layout_width="match_parent"
+        		android:layout_height="match_parent" android:layout_margin="4dp">
+	            <Button
+	                android:id="@+id/b4Show"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/selectorbuttonclose"
+	                android:onClick="onClickExitWine" android:layout_gravity="center"/>
+				</FrameLayout>
+			</LinearLayout>
+		</LinearLayout>
+</LinearLayout>

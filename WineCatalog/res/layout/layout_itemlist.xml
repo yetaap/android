@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativeLayoutItem"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="4px"
+        android:background="@android:color/transparent" >
+
+        <ImageView
+            android:id="@+id/imageViewIcon"
+            android:src="@drawable/nophoto" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false"
+			android:layout_centerVertical="true"
+    	    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textViewMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:layout_toRightOf="@id/imageViewIcon"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/textViewMain"
+            android:layout_below="@id/textViewMain"
+            android:layout_toRightOf="@id/imageViewIcon"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingTop="3dp"
+            android:text="TextView"
+            android:textStyle="italic" />
+
+        <RatingBar
+            android:id="@+id/ratingBarListWine"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/textViewMain"
+            android:layout_below="@id/textViewSecondary"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@id/imageViewIcon" />
+                
+        <ImageView
+            android:id="@+id/imageViewMayor"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:maxHeight="30sp"
+            android:maxWidth="30sp"
+            android:minHeight="30sp"
+            android:minWidth="30sp"
+            android:onClick="onClickShow"
+            android:src="@drawable/show" />
+
+    </RelativeLayout>

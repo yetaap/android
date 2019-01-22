@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wine Catalog</string>
+    <string name="AddWine">Add Wine</string>
+	<string name="Update">Update</string>
+    <string name="CriticalError">Unknown error. Restart Application!</string>
+    <string name="FindWine">Find Wine</string>
+    <string name="CameraText">Touch screen to get label</string>
+    <string name="WineName">Name</string>
+    <string name="HarvestYear">Harvest Year</string>
+    <string name="Producer">Winery</string>
+    <string name="Region">Region</string>
+    <string name="WineMaduration">Wine Maduration</string>
+    <string name="KindOfWine">Wine Type</string>
+    <string name="Commentary">Notes</string>
+    <string name="Data">Data</string>
+    <string name="Photo">Label</string>
+    <string name="alcohol">Graduation</string>
+    <string name="noResults">No results.</string>
+    <string name="noResultsAdd">Wines list empty, add wine (+).</string>
+    <string name="rating">Rating :</string>
+    <string name="splashProgress">Reading data base...</string>
+    <string name="alertDelete">Are you sure you want to delete wine entry?</string>
+    <string name="OK">Yes</string>
+    <string name="NO">No</string>
+</resources>

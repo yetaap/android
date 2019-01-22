@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/backgroundapp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchbar">
+        
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+      		android:imeOptions="actionDone"
+        	android:inputType="text|textNoSuggestions">
+        </EditText>
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_gravity="left|center_vertical"
+            android:layout_margin="8dp"
+            android:background="@drawable/action_search" 
+            android:layout_height="wrap_content" 
+            android:layout_width="wrap_content"/>
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_margin="8dp"
+            android:background="@drawable/backspace"
+            android:onClick="onSearchDelete"/>
+
+    </FrameLayout>
+	<View 
+	   	android:layout_width="fill_parent" 
+	   	android:layout_height="1dp" 
+	   	android:background="@color/holo_blue_light"/> 
+        
+	<RelativeLayout  
+    	android:layout_width="fill_parent" 
+    	android:layout_height="fill_parent"> 
+
+		<LinearLayout 
+		    android:id="@+id/linearLayoutBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" 
+            android:layout_alignParentBottom="true">
+
+		    <View 
+		    	android:layout_width="fill_parent" 
+		    	android:layout_height="1dp" 
+		    	android:background="@color/holo_blue_light"/> 
+		    	    	    
+			<LinearLayout 
+			    android:id="@+id/linearLayoutButtons"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal">
+	
+			    <FrameLayout
+        			android:layout_width="match_parent"
+        			android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp">
+			    	<Button
+		                android:id="@+id/b1"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@drawable/selectorbuttonadd"
+		                android:onClick="onClickAddWine" android:layout_gravity="center"/>
+		    	</FrameLayout>
+
+			    <FrameLayout
+			        android:layout_weight="1"
+       				android:layout_width="match_parent"
+       				android:layout_height="match_parent" android:layout_margin="4dp">
+		            <Button
+		                android:id="@+id/b2"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@drawable/selectorbuttonedit"
+		                android:onClick="onClickEdit" android:layout_gravity="center"/>
+	            </FrameLayout>
+
+		        <FrameLayout
+		            android:layout_weight="1"
+       				android:layout_width="match_parent"
+       				android:layout_height="match_parent" android:layout_margin="4dp">
+	            <Button
+	                android:id="@+id/b3"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/selectorbuttondelete"
+	                android:onClick="onClickDelete" android:layout_gravity="center"/>
+	            </FrameLayout>
+
+		        <FrameLayout
+				    android:layout_weight="1"
+        			android:layout_width="match_parent"
+        			android:layout_height="match_parent" android:layout_margin="4dp">
+	            <Button
+	                android:id="@+id/b4"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/selectorbuttonclose"
+	                android:onClick="onClickExitWine" android:layout_gravity="center"/>
+				</FrameLayout>
+			</LinearLayout>
+		</LinearLayout>
+ 
+        <ListView
+            android:id="@+id/listViewFindWine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4px" 
+			android:layout_alignParentTop="true" 
+			android:layout_above="@id/linearLayoutBottom">
+        </ListView>
+
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="onClickSimpleLayout"
+            android:layout_above="@id/linearLayoutBottom"/>
+	</RelativeLayout> 
+</LinearLayout>
